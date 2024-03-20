@@ -47,7 +47,7 @@ void Plot::loadDataToPlot()
 
     int limit = size / 2;
 
-    QVector<double> x(limit), y(limit);
+    QVector<double> x(limit), y(limit), z(limit);
     for(int i = 0; i < limit; i ++)
     {
         x[i] = i;
@@ -58,6 +58,10 @@ void Plot::loadDataToPlot()
     ui->customPlot->graph(0)->data()->clear();
     ui->customPlot->graph(0)->setData(x,y);
     ui->customPlot->replot();
+    std::sort(y.begin(),y.end());
+    std::fill(z.begin(),z.end(),y[limit / 2]);
+
+    ui->customPlot->graph(0)->setData(x,z);
 
     ui->statusbar->showMessage("Mediane:" + QString::number(y[size / 4]) + "\t\t\t"+ " Maxvalue: " + QString::number(y.last()));
 }
