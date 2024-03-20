@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/ICO">
+        <file>ICO/artboard_123065.ico</file>
+        <file>ICO/clipboard_note_document_report_paper_icon_192535.ico</file>
+    </qresource>
+</RCC>
